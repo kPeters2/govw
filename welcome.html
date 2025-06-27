@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to SmartBW</title>
+
+  <!-- External CSS & JS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="stylesheet2.css" />
+</head>
+<body>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide welcome-slide">
+        <div class="slide-content">
+          <h1>Welcome to SmartBW</h1>
+          <p>One platform for all Batswana government services and updates.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide howitworks-slide">
+        <div class="slide-content">
+          <h1>How It Works</h1>
+          <p>Explore government services easily and stay updated with the latest information.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide login-slide">
+        <div class="slide-content">
+          <h1>Login</h1>
+          <form id="login-form">
+            <input type="text" placeholder="Username" required /><br />
+            <input type="password" placeholder="Password" required /><br />
+            <button type="submit" class="welcome-btn">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button id="skip-btn" class="skip-btn">Skip</button>
+    <button id="next-btn" class="next-btn">
+      Next <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <!-- JS scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      allowTouchMove: false,
+    });
+
+    const nextBtn = document.getElementById("next-btn");
+    const skipBtn = document.getElementById("skip-btn");
+
+    function animateCurrentSlide() {
+      document.querySelectorAll(".slide-content").forEach((el) => {
+        el.classList.remove("fade-in");
+        el.style.opacity = 0;
+      });
+
+      const activeContent = swiper.slides[swiper.activeIndex].querySelector(".slide-content");
+      if (activeContent) {
+        void activeContent.offsetWidth; // trigger reflow
+        activeContent.classList.add("fade-in");
+      }
+    }
+
+    // Animate first slide on load
+    animateCurrentSlide();
+
+    nextBtn.addEventListener("click", () => {
+      if (swiper.isEnd) {
+        window.location.href = "index.html";
+      } else {
+        swiper.slideNext();
+      }
+    });
+
+    skipBtn.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+
+    swiper.on("slideChange", () => {
+      animateCurrentSlide();
+    });
+
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Login submitted!");
+    });
+  </script>
+</body>
+</html>
