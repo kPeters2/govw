@@ -1,0 +1,198 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+/* Apply to entire page */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/coat-of-arms.webp'); 
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.8px);
+  opacity: 0.19; /* Light watermark effect */
+  z-index: -1;   /* Send it behind everything */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004AAD;
+  padding: 15px 30px;
+  color: #ffffff;
+}
+
+/* logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  color: #d3d3d3;             /* Text color */
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #001381;  /* Hover background */
+  color: #000000;             /* Hover text color */
+}
+
+
+/* welcome Section */
+.Welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.Welcome h1 {
+  font-size: 2.2rem;
+  color: #004AAD;
+  margin-bottom: 15px;
+}
+
+.Welcome p {
+  max-width: 600px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+
+
+.btn {
+  background-color: #004AAD;
+  color: #ffffff;
+  padding: 6px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #002F6C; 
+}
+
+
+/* Swiper slide */
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin: 40px auto;
+}
+
+
+.swiper-slide {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.swiper-slide h3 {
+  margin-top: 15px;
+  color: #004AAD;
+}
+
+.swiper-slide p {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Footer */
+footer {
+    flex-shrink: 0;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 60px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .Welcome {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 60px 80px;
+  }
+
+  .Welcome-text {
+    flex: 1;
+    padding-right: 40px;
+  }
+
+  .Welcome-img {
+    flex: 1;
+  }
+
+  .Welcome-img img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+
+/* swiper slide */
+
